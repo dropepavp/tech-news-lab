@@ -454,20 +454,33 @@ function renderDetailPage() {
         imgEl.onerror = function() { this.onerror = null; this.src = 'img/default-news.svg'; };
     }
     if (contentEl) {
+        const imageSrc = article.image || 'img/default-news.svg';
         contentEl.innerHTML = `
-            <p style="font-size: 1.15rem; font-weight: 500; color: #1e293b; line-height: 1.7; margin-bottom: 24px;">
+            <p style="font-size: 1.15rem; font-weight: 500; color: var(--text-main); line-height: 1.7; margin-bottom: 22px;">
                 ${article.desc}
             </p>
-            <p>${article.content || article.desc}</p>
-            <div style="background: #f1f5f9; border-left: 4px solid var(--brand-cyan); padding: 18px 24px; margin: 28px 0; border-radius: 0 8px 8px 0;">
-                <h4 style="margin-bottom: 6px; color: var(--primary);">Aspectos Clave del Laboratorio:</h4>
-                <ul style="padding-left: 20px; font-size: 14px; color: #475569;">
-                    <li>Implementación 100% nativa y modular en Front-End.</li>
-                    <li>Consumo asíncrono desde archivo JSON estructurado.</li>
-                    <li>Persistencia de estado en LocalStorage sin dependencias externas.</li>
+            <p style="margin-bottom: 20px;">${article.content || article.desc}</p>
+            
+            <!-- FIGURA E ILUSTRACIÓN TÉCNICA INTERNA -->
+            <figure class="article-inner-figure">
+                <img src="${imageSrc}" alt="Esquema técnico de ${article.title}" onerror="this.onerror=null; this.src='img/default-news.svg';">
+                <figcaption class="article-inner-caption">
+                    <span>📊</span>
+                    <span>Figura 1.1: Esquema de arquitectura y componentes para ${article.cat} &bull; Tech &amp; Lab 2026</span>
+                </figcaption>
+            </figure>
+
+            <div class="article-highlight-box">
+                <h4 style="margin-bottom: 8px; color: var(--brand-navy); font-size: 15px;">Aspectos Clave del Laboratorio:</h4>
+                <ul style="padding-left: 20px; font-size: 13.5px; color: var(--text-muted); line-height: 1.6;">
+                    <li>Implementación 100% nativa y modular en Front-End (HTML5, CSS3, JavaScript ES6+).</li>
+                    <li>Consumo asíncrono desde archivo JSON local estructurado sin dependencias externas.</li>
+                    <li>Persistencia de estado en LocalStorage para gestión personalizada de favoritos.</li>
                 </ul>
             </div>
-            <p>Para profundizar en estos conceptos y consultar el código fuente de los ejemplos prácticos desarrollados en el Laboratorio Politécnico Grancolombiano (Subgrupo 19), puedes ponerte en contacto con el autor del artículo o revisar nuestro repositorio institucional.</p>
+            <p style="margin-top: 18px; color: var(--text-muted); font-size: 14.5px;">
+                Para profundizar en estos conceptos y consultar el código fuente de los ejemplos prácticos desarrollados en el laboratorio, puedes ponerte en contacto con el autor del artículo o escribir a nuestro canal institucional.
+            </p>
         `;
     }
     if (breadcrumbTitle) breadcrumbTitle.textContent = article.title.length > 30 ? article.title.substring(0, 30) + '...' : article.title;
