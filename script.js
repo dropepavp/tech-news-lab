@@ -108,7 +108,18 @@ async function initNewsData() {
 
 function getStoredNews() {
     const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : DEFAULT_NEWS;
+    const data = raw ? JSON.parse(raw) : DEFAULT_NEWS;
+    return data.map(item => {
+        if (!item.image || item.image.startsWith('http')) {
+            if (item.cat === 'Desarrollo Web') item.image = 'img/angular-signals.svg';
+            else if (item.cat === 'Inteligencia Artificial') item.image = 'img/ai-apis.svg';
+            else if (item.cat === 'Ciberseguridad') item.image = 'img/cybersecurity-zerotrust.svg';
+            else if (item.cat === 'Cloud & DevOps') item.image = 'img/cloud-wasm.svg';
+            else if (item.cat === 'Experiencias Tech') item.image = 'img/digital-twins.svg';
+            else item.image = 'img/default-news.svg';
+        }
+        return item;
+    });
 }
 
 function saveNewsData(data) {
@@ -194,7 +205,7 @@ function createNewsCardHTML(item) {
     return `
         <article class="card-item" data-id="${item.id}" data-category="${item.cat}">
             <div class="card-image-wrap">
-                <img src="${imageSrc}" alt="${item.title}" class="card-img" loading="lazy" onerror="this.src='img/default-news.svg'">
+                <img src="${imageSrc}" alt="${item.title}" class="card-img" loading="lazy" onerror="this.onerror=null; this.src='img/default-news.svg';">
                 <span class="card-badge">${item.cat}</span>
             </div>
             <div class="card-content">
@@ -440,7 +451,7 @@ function renderDetailPage() {
     if (imgEl) {
         imgEl.src = article.image || 'img/default-news.svg';
         imgEl.alt = article.title;
-        imgEl.onerror = function() { this.src = 'img/default-news.svg'; };
+        imgEl.onerror = function() { this.onerror = null; this.src = 'img/default-news.svg'; };
     }
     if (contentEl) {
         contentEl.innerHTML = `
@@ -505,7 +516,7 @@ function renderDetailPage() {
         const related = news.filter(n => n.id !== article.id).slice(0, 3);
         relatedContainer.innerHTML = related.map(item => `
             <a href="detalle.html?id=${item.id}" style="display: flex; gap: 12px; margin-bottom: 16px; align-items: center;">
-                <img src="${item.image || 'img/default-news.svg'}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px;" alt="" onerror="this.src='img/default-news.svg'">
+                <img src="${item.image || 'img/default-news.svg'}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px;" alt="" onerror="this.onerror=null; this.src='img/default-news.svg';">
                 <div>
                     <span style="font-size: 11px; font-weight: 700; color: var(--brand-cyan);">${item.cat}</span>
                     <h5 style="font-size: 13px; line-height: 1.3; margin-top: 2px;">${item.title}</h5>
@@ -561,6 +572,21 @@ function initAdminPage() {
     const tableBody = document.getElementById('admin-news-table-body');
     const form = document.getElementById('create-news-form');
     const resetDefaultsBtn = document.getElementById('reset-defaults-btn');
+    const catSelect = document.getElementById('news-cat');
+    const imgSelect = document.getElementById('news-image-select');
+
+    // Auto-select local image based on chosen category
+    if (catSelect && imgSelect) {
+        catSelect.addEventListener('change', () => {
+            const cat = catSelect.value;
+            if (cat === 'Desarrollo Web') imgSelect.value = 'img/angular-signals.svg';
+            else if (cat === 'Inteligencia Artificial') imgSelect.value = 'img/ai-apis.svg';
+            else if (cat === 'Ciberseguridad') imgSelect.value = 'img/cybersecurity-zerotrust.svg';
+            else if (cat === 'Cloud & DevOps') imgSelect.value = 'img/cloud-wasm.svg';
+            else if (cat === 'Experiencias Tech') imgSelect.value = 'img/digital-twins.svg';
+            else imgSelect.value = 'img/default-news.svg';
+        });
+    }
 
     function renderTable() {
         const news = getStoredNews();
@@ -572,7 +598,7 @@ function initAdminPage() {
             tableBody.innerHTML = news.map(item => `
                 <tr>
                     <td>
-                        <img src="${item.image || 'img/default-news.svg'}" alt="" class="table-thumb" onerror="this.src='img/default-news.svg'">
+                        <img src="${item.image || 'img/default-news.svg'}" alt="" class="table-thumb" onerror="this.onerror=null; this.src='img/default-news.svg';">
                     </td>
                     <td>
                         <strong style="display: block; font-size: 14px;">${item.title}</strong>
@@ -617,7 +643,8 @@ function initAdminPage() {
             const cat = document.getElementById('news-cat').value;
             const author = document.getElementById('news-author').value.trim() || 'Subgrupo 19';
             const readTime = document.getElementById('news-readtime').value.trim() || '5 min';
-            const image = document.getElementById('news-image').value.trim() || 'img/default-news.svg';
+            const imageSelect = document.getElementById('news-image-select');
+            const image = (imageSelect ? imageSelect.value : '') || 'img/default-news.svg';
             const desc = document.getElementById('news-desc').value.trim();
             const content = document.getElementById('news-content').value.trim() || desc;
 
