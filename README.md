@@ -74,3 +74,4 @@ Tech News & Lab/
 - **Curso:** Front-End & Tecnologías Web
 - **Institución:** Politécnico Grancolombiano
 - **Año:** 2026
+Subgrupo 19
