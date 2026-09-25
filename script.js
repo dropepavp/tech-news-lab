@@ -619,7 +619,7 @@ function initAdminPage() {
     if (catSelect && imgSelect) {
         catSelect.addEventListener('change', () => {
             const cat = catSelect.value;
-            if (cat === 'Desarrollo Web') imgSelect.value = 'img/angular-signals.svg';
+            if (cat === 'Desarrollo Web') imgSelect.value = 'img/web-development.svg';
             else if (cat === 'Inteligencia Artificial') imgSelect.value = 'img/ai-apis.svg';
             else if (cat === 'Ciberseguridad') imgSelect.value = 'img/cybersecurity-zerotrust.svg';
             else if (cat === 'Cloud & DevOps') imgSelect.value = 'img/cloud-wasm.svg';
