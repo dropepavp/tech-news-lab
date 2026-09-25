@@ -61,7 +61,7 @@
   <g transform="translate(400, 130)">
     <rect x="-65" y="-32" width="130" height="64" rx="8" fill="#002855" stroke="#38bdf8" stroke-width="2"/>
     <text x="0" y="-4" font-family="'Outfit', sans-serif" font-weight="700" font-size="13" fill="#ffffff" text-anchor="middle">AUTH SERVICE</text>
-    <text x="0" y="14" font-family="'Inter', monospace" font-size="10" fill="#93c5fd" text-anchor="middle">JWT &bull; -40% Latencia</text>
+    <text x="0" y="14" font-family="'Inter', monospace" font-size="10" fill="#93c5fd" text-anchor="middle">JWT • -40% Latencia</text>
   </g>
 
   <!-- Microservice 2: Events & Data -->
@@ -75,7 +75,7 @@
   <g transform="translate(400, 290)">
     <rect x="-65" y="-32" width="130" height="64" rx="8" fill="#002855" stroke="#38bdf8" stroke-width="2"/>
     <text x="0" y="-4" font-family="'Outfit', sans-serif" font-weight="700" font-size="13" fill="#ffffff" text-anchor="middle">CACHE SERVICE</text>
-    <text x="0" y="14" font-family="'Inter', monospace" font-size="10" fill="#93c5fd" text-anchor="middle">Redis &bull; Memory Opt</text>
+    <text x="0" y="14" font-family="'Inter', monospace" font-size="10" fill="#93c5fd" text-anchor="middle">Redis • Memory Opt</text>
   </g>
 
   <!-- Cloud / Client Output (Right Node) -->
@@ -92,6 +92,6 @@
 
   <!-- Bottom Title -->
   <text x="400" y="415" font-family="'Outfit', sans-serif" font-weight="800" font-size="22" fill="#f8fafc" text-anchor="middle">
-    MIGRACIÓN DE MICROSERVICIOS &bull; RESPUESTAS EN TIEMPO REAL
+    MIGRACIÓN DE MICROSERVICIOS • RESPUESTAS EN TIEMPO REAL
   </text>
 </svg>

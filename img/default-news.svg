@@ -25,9 +25,9 @@
 
   <!-- Title Bottom Strip -->
   <text x="400" y="380" font-family="'Outfit', sans-serif" font-weight="800" font-size="24" fill="#ffffff" text-anchor="middle">
-    TECH &amp; LAB &bull; NOTICIAS TECNOLÓGICAS
+    TECH &amp; LAB • NOTICIAS TECNOLÓGICAS
   </text>
   <text x="400" y="410" font-family="'Outfit', sans-serif" font-weight="600" font-size="14" fill="#93c5fd" text-anchor="middle">
-    POLITÉCNICO GRANCOLOMBIANO
+    LABORATORIO DIGITAL
   </text>
 </svg>
