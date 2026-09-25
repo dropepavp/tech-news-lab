@@ -110,29 +110,46 @@
                 </form>
             </div>
 
-            <!-- GUÍA / AYUDA EDITORIAL -->
+            <!-- PREVISUALIZACIÓN EN VIVO & GUÍA EDITORIAL -->
             <div style="display: flex; flex-direction: column; gap: 20px;">
-                <div class="form-card" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white;">
-                    <span style="color: var(--brand-cyan); font-weight: 700; font-size: 12px; text-transform: uppercase;">ℹ️ Información del Sistema</span>
-                    <h4 style="color: white; margin: 8px 0 12px; font-size: 18px;">Persistencia en LocalStorage</h4>
-                    <p style="font-size: 13.5px; color: #cbd5e1; line-height: 1.6; margin-bottom: 16px;">
-                        Toda noticia que crees o elimines se sincroniza instantáneamente con el almacenamiento de tu navegador. Las nuevas publicaciones aparecerán de inmediato en la Página de Inicio, el Catálogo y la vista de Detalle.
-                    </p>
-                    <ul style="font-size: 13px; color: #94a3b8; padding-left: 18px; line-height: 1.6;">
-                        <li>Las imágenes deben ser enlaces válidos (soporta Unsplash).</li>
-                        <li>Los IDs se autoincrementan de forma segura.</li>
-                        <li>Si borras una noticia, también se limpia de la lista de favoritos.</li>
-                    </ul>
+                
+                <!-- TARJETA PREVIEW EN TIEMPO REAL -->
+                <div class="form-card" style="padding: 24px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                        <h4 style="font-size: 16px; color: var(--brand-navy); font-weight: 700;">👁️ Previsualización en Vivo</h4>
+                        <span style="font-size: 11px; background: #e0f2fe; color: var(--brand-blue); font-weight: 700; padding: 2px 8px; border-radius: var(--radius-full);">VISTA EN CATÁLOGO</span>
+                    </div>
+
+                    <!-- CARD PREVIEW -->
+                    <article class="card-item" style="box-shadow: none; border-color: #cbd5e1;">
+                        <div class="card-image-wrap" style="height: 160px;">
+                            <img id="preview-img" src="img/default-news.svg" alt="Previsualización" class="card-img" onerror="this.onerror=null; this.src='img/default-news.svg';">
+                            <span id="preview-badge" class="card-badge">CATEGORÍA</span>
+                        </div>
+                        <div class="card-content" style="padding: 16px;">
+                            <div class="card-meta">
+                                <span id="preview-date">📅 Hoy</span>
+                                <span>•</span>
+                                <span id="preview-readtime">⏱️ 4 min</span>
+                            </div>
+                            <h3 id="preview-title" class="card-title" style="font-size: 16px;">Título de la noticia en desarrollo...</h3>
+                            <p id="preview-desc" class="card-desc" style="font-size: 13px; margin-bottom: 12px;">Aquí se verá el resumen conciso que redactes en el formulario.</p>
+                            <div class="card-footer" style="padding-top: 10px;">
+                                <span class="btn btn-primary" style="padding: 6px 12px; font-size: 12px; pointer-events: none;">Leer Noticia →</span>
+                                <span style="font-size: 12px; color: var(--text-light);" id="preview-author">Por: Autor</span>
+                            </div>
+                        </div>
+                    </article>
                 </div>
 
-                <div class="form-card">
-                    <h4 style="margin-bottom: 12px; font-size: 16px;">Consejos para Redacción Técnica</h4>
-                    <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 10px;">
-                        • Usa títulos claros que describan el impacto de la tecnología.<br>
-                        • En el resumen, destaca el beneficio para arquitecturas web modernas.<br>
-                        • Especifica la categoría adecuada para facilitar la búsqueda en el catálogo.
+                <!-- INFORMACIÓN INSTITUCIONAL -->
+                <div class="form-card" style="background: var(--brand-navy); color: white; padding: 20px;">
+                    <span style="color: var(--brand-cyan); font-weight: 700; font-size: 11.5px; text-transform: uppercase;">ℹ️ Persistencia en LocalStorage</span>
+                    <p style="font-size: 13px; color: #cbd5e1; line-height: 1.5; margin-top: 6px;">
+                        Toda publicación creada se guarda inmediatamente en el navegador del usuario y se renderiza en Inicio, Catálogo y Detalle con su correspondiente ilustración local.
                     </p>
                 </div>
+
             </div>
 
         </div>

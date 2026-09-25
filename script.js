@@ -575,6 +575,46 @@ function initAdminPage() {
     const catSelect = document.getElementById('news-cat');
     const imgSelect = document.getElementById('news-image-select');
 
+    // Live preview elements
+    const prevTitle = document.getElementById('preview-title');
+    const prevDesc = document.getElementById('preview-desc');
+    const prevAuthor = document.getElementById('preview-author');
+    const prevReadtime = document.getElementById('preview-readtime');
+    const prevBadge = document.getElementById('preview-badge');
+    const prevImg = document.getElementById('preview-img');
+
+    const titleInput = document.getElementById('news-title');
+    const descInput = document.getElementById('news-desc');
+    const authorInput = document.getElementById('news-author');
+    const readtimeInput = document.getElementById('news-readtime');
+
+    function updateLivePreview() {
+        if (prevTitle && titleInput) {
+            prevTitle.textContent = titleInput.value.trim() || 'Título de la noticia en desarrollo...';
+        }
+        if (prevDesc && descInput) {
+            prevDesc.textContent = descInput.value.trim() || 'Aquí se verá el resumen conciso que redactes en el formulario.';
+        }
+        if (prevAuthor && authorInput) {
+            prevAuthor.textContent = 'Por: ' + (authorInput.value.trim() || 'Subgrupo 19');
+        }
+        if (prevReadtime && readtimeInput) {
+            prevReadtime.textContent = '⏱️ ' + (readtimeInput.value.trim() || '4 min');
+        }
+        if (prevBadge && catSelect) {
+            prevBadge.textContent = catSelect.value || 'CATEGORÍA';
+        }
+        if (prevImg && imgSelect) {
+            prevImg.src = imgSelect.value || 'img/default-news.svg';
+        }
+    }
+
+    if (titleInput) titleInput.addEventListener('input', updateLivePreview);
+    if (descInput) descInput.addEventListener('input', updateLivePreview);
+    if (authorInput) authorInput.addEventListener('input', updateLivePreview);
+    if (readtimeInput) readtimeInput.addEventListener('input', updateLivePreview);
+    if (imgSelect) imgSelect.addEventListener('change', updateLivePreview);
+
     // Auto-select local image based on chosen category
     if (catSelect && imgSelect) {
         catSelect.addEventListener('change', () => {
@@ -585,6 +625,7 @@ function initAdminPage() {
             else if (cat === 'Cloud & DevOps') imgSelect.value = 'img/cloud-wasm.svg';
             else if (cat === 'Experiencias Tech') imgSelect.value = 'img/digital-twins.svg';
             else imgSelect.value = 'img/default-news.svg';
+            updateLivePreview();
         });
     }
 
