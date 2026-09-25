@@ -1,15 +1,14 @@
-[
   {
     "id": 1,
-    "cat": "Desarrollo Web",
-    "title": "Arquitectura Reactiva y Signals en Angular 18",
-    "desc": "Análisis profundo del nuevo paradigma de reactividad granular y flujo de control sin Zone.js.",
+    "cat": "Cloud & DevOps",
+    "title": "Migración de microservicios: Cómo optimizar respuestas sin morir en el intento",
+    "desc": "Exploramos cómo un equipo de desarrollo redujo en un 40% el uso de memoria cambiando tablas estáticas por arquitecturas reactivas.",
     "author": "Ing. Sofía Martínez",
     "date": "24 Sep 2026",
     "readTime": "5 min",
-    "image": "img/angular-signals.svg",
+    "image": "img/microservices-architecture.svg",
     "featured": true,
-    "content": "Las señales (Signals) en Angular representan uno de los saltos evolutivos más trascendentales en el ecosistema front-end. Al permitir un seguimiento de dependencias a nivel de nodo en el árbol del DOM, se elimina la necesidad de comprobación sucia global que históricamente ejecutaba Zone.js. Esto se traduce en aplicaciones empresariales con renderizados a 60 FPS consistentes, menor consumo de memoria en dispositivos móviles y una sintaxis declarativa más limpia para los desarrolladores. En este reporte evaluamos benchmarks de rendimiento comparando aplicaciones Angular 14 vs Angular 18 en microfrontends de alta concurrencia."
+    "content": "La transición desde monolitos hacia microservicios desacoplados introduce desafíos críticos en concurrencia y latencia de red. En este caso de estudio del laboratorio, evaluamos cómo la incorporación de patrones de comunicación asíncrona mediante WebSockets y enrutamiento con API Gateway redujo el tiempo de respuesta en un 40% y optimizó el uso de memoria en un 50% en clústeres Kubernetes de alta demanda."
   },
   {
     "id": 2,
