@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lectura completa del artículo tecnológico en Tech News & Lab.">
+    <title>Tech News & Lab | Detalle de la Noticia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- HEADER / NAVEGACIÓN -->
+    <header>
+        <div class="nav-wrapper">
+            <a href="index.html" class="logo-box">
+                <div class="logo-icon">{ }</div>
+                <div class="brand-text">
+                    Tech News
+                    <span>// Laboratorio Digital</span>
+                </div>
+            </a>
+
+            <button class="mobile-toggle" aria-label="Abrir Menú">☰</button>
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="catalogo.html" class="nav-link">Noticias</a>
+                <a href="favoritos.html" class="nav-link fav-badge-btn">
+                    ⭐ Favoritos <span class="badge-count fav-count-badge">0</span>
+                </a>
+                <a href="gestion.html" class="nav-link">Gestión CRUD</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container" id="article-detail-section">
+        
+        <!-- BREADCRUMBS -->
+        <nav class="breadcrumbs">
+            <a href="index.html">Inicio</a>
+            <span>/</span>
+            <a href="catalogo.html">Catálogo</a>
+            <span>/</span>
+            <span id="det-breadcrumb-title" style="color: var(--text-main); font-weight: 600;">Detalle</span>
+        </nav>
+
+        <div class="detail-layout">
+            
+            <!-- ARTÍCULO PRINCIPAL -->
+            <article class="article-main">
+                <div class="article-header">
+                    <span id="det-cat" class="article-tag">CATEGORÍA</span>
+                    <h1 id="det-title" class="article-title">Cargando noticia...</h1>
+                    
+                    <div class="article-meta-bar">
+                        <div class="author-chip">
+                            <div class="author-avatar">TN</div>
+                            <div>
+                                <div class="author-name" id="det-author">Equipo Editorial</div>
+                                <div class="article-date">
+                                    <span id="det-date">2026</span> • <span id="det-readtime">5 min lectura</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 10px;">
+                            <button id="det-fav-btn" class="btn btn-outline">
+                                ☆ Agregar a Favoritos
+                            </button>
+                            <button id="det-share-btn" class="btn btn-secondary" title="Copiar enlace">
+                                🔗 Compartir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <img id="det-img" src="" alt="" class="article-hero-img">
+
+                <div id="det-content" class="article-body">
+                    <!-- Contenido inyectado dinámicamente -->
+                </div>
+
+                <div class="article-actions-bar">
+                    <a href="catalogo.html" class="btn btn-secondary">← Volver al Catálogo</a>
+                    <a href="contacto.html" class="btn btn-primary">Contactar al Autor / Soporte</a>
+                </div>
+            </article>
+
+            <!-- SIDEBAR -->
+            <aside>
+                <div class="sidebar-card">
+                    <h4 class="sidebar-title">Sobre la Publicación</h4>
+                    <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.6;">
+                        Este contenido es elaborado y verificado por el equipo de investigación y desarrollo del <strong>Politécnico Grancolombiano</strong> como parte de los módulos de Front-End y Tecnologías Web.
+                    </p>
+                    <div style="background: #f8fafc; padding: 12px; border-radius: 8px; font-size: 12px; color: var(--text-muted);">
+                        🔒 Contenido bajo licencia académica abierta &bull; 2026
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h4 class="sidebar-title">Noticias Relacionadas</h4>
+                    <div id="related-news-list">
+                        <!-- Noticias relacionadas cargadas dinámicamente -->
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-col">
+                <div class="logo-box" style="margin-bottom: 16px;">
+                    <div class="logo-icon">{ }</div>
+                    <div class="brand-text">Tech News <span>// Lab</span></div>
+                </div>
+                <p>Plataforma académica y portal de difusión tecnológica enfocado en el desarrollo front-end moderno, servicios cloud e innovación de software.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo de Noticias</a></li>
+                    <li><a href="favoritos.html">Mis Favoritos</a></li>
+                    <li><a href="gestion.html">Panel de Gestión</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Categorías</h4>
+                <ul class="footer-links">
+                    <li><a href="catalogo.html">Desarrollo Web</a></li>
+                    <li><a href="catalogo.html">Inteligencia Artificial</a></li>
+                    <li><a href="catalogo.html">Ciberseguridad</a></li>
+                    <li><a href="catalogo.html">Cloud & DevOps</a></li>
+                    <li><a href="catalogo.html">Experiencias Tech</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Boletín Tecnológico</h4>
+                <p>Recibe los mejores análisis técnicos directamente en tu correo semanal.</p>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" placeholder="tu@correo.com" required>
+                    <button type="submit" class="btn btn-primary" style="padding: 8px 14px;">Unirse</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Tech News & Lab &bull; Politécnico Grancolombiano &bull; Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

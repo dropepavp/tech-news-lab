@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tech News & Lab - Portal y periódico digital de innovación, desarrollo web, computación en la nube e inteligencia artificial.">
+    <title>Tech News & Lab | Inicio e Innovación Digital</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- HEADER / NAVEGACIÓN -->
+    <header>
+        <div class="nav-wrapper">
+            <a href="index.html" class="logo-box">
+                <div class="logo-icon">{ }</div>
+                <div class="brand-text">
+                    Tech News
+                    <span>// Laboratorio Digital</span>
+                </div>
+            </a>
+
+            <button class="mobile-toggle" aria-label="Abrir Menú">☰</button>
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link active">Inicio</a>
+                <a href="catalogo.html" class="nav-link">Noticias</a>
+                <a href="favoritos.html" class="nav-link fav-badge-btn">
+                    ⭐ Favoritos <span class="badge-count fav-count-badge">0</span>
+                </a>
+                <a href="gestion.html" class="nav-link">Gestión CRUD</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container">
+        
+        <!-- HERO SECTION -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <span class="hero-tag">⚡ Edición Especial 2026</span>
+                <h1 class="hero-title">
+                    Explora el Futuro del <span class="gradient-text">Desarrollo Web & Cloud</span>
+                </h1>
+                <p class="hero-desc">
+                    Bienvenido a Tech News & Lab. Un periódico digital y laboratorio interactivo donde exploramos tendencias de vanguardia en Angular, Inteligencia Artificial, Ciberseguridad y experiencias tecnológicas.
+                </p>
+                <div class="hero-actions">
+                    <a href="catalogo.html" class="btn btn-primary" id="hero-explore-btn">Explorar Todas las Noticias</a>
+                    <a href="gestion.html" class="btn btn-outline">Crear Nueva Noticia</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS STRIP -->
+        <section class="stats-strip">
+            <div class="stat-card">
+                <div class="stat-icon">📰</div>
+                <div>
+                    <div class="stat-number" id="stat-total-articles">6</div>
+                    <div class="stat-label">Artículos Publicados</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⚡</div>
+                <div>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Reactividad & DOM</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div>
+                    <div class="stat-number">+12k</div>
+                    <div class="stat-label">Lectores Mensuales</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎓</div>
+                <div>
+                    <div class="stat-number">Poli Lab</div>
+                    <div class="stat-label">Proyecto Front-End</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DESTACADOS -->
+        <section style="margin-bottom: 48px;">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Noticias Destacadas</h2>
+                    <p class="section-subtitle">Las publicaciones más leídas y relevantes de esta semana.</p>
+                </div>
+                <a href="catalogo.html" class="btn btn-secondary">Ver Catálogo Completo →</a>
+            </div>
+
+            <!-- GRID DINÁMICO CARGADO POR JS -->
+            <div id="home-featured-grid" class="catalog-grid">
+                <!-- Se inyecta dinámicamente desde script.js -->
+            </div>
+        </section>
+
+        <!-- TESTIMONIOS Y COMUNIDAD -->
+        <section style="margin-bottom: 48px;">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Experiencias y Testimonios</h2>
+                    <p class="section-subtitle">Lo que nuestra comunidad de estudiantes e investigadores opina.</p>
+                </div>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"La profundidad de los artículos de arquitectura en Angular y WebAssembly nos ayudó a optimizar nuestro proyecto final de semestre."</p>
+                    <div class="testimonial-user">
+                        <div class="testimonial-avatar">SM</div>
+                        <div>
+                            <strong style="font-size: 14px; display: block;">Sofía Moreno</strong>
+                            <span style="font-size: 12px; color: var(--text-muted);">Estudiante Ingeniería de Software</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"La interfaz es moderna, rápida y la función de favoritos con almacenamiento local facilita guardar referencias técnicas para el laboratorio."</p>
+                    <div class="testimonial-user">
+                        <div class="testimonial-avatar">DH</div>
+                        <div>
+                            <strong style="font-size: 14px; display: block;">David Herrera</strong>
+                            <span style="font-size: 12px; color: var(--text-muted);">Desarrollador Front-End Junior</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Excelente fuente de consulta sobre seguridad Zero Trust y buenas prácticas de consumo de APIs de IA."</p>
+                    <div class="testimonial-user">
+                        <div class="testimonial-avatar">LR</div>
+                        <div>
+                            <strong style="font-size: 14px; display: block;">Laura Restrepo</strong>
+                            <span style="font-size: 12px; color: var(--text-muted);">Investigadora Cloud Poli</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-col">
+                <div class="logo-box" style="margin-bottom: 16px;">
+                    <div class="logo-icon">{ }</div>
+                    <div class="brand-text">Tech News <span>// Lab</span></div>
+                </div>
+                <p>Plataforma académica y portal de difusión tecnológica enfocado en el desarrollo front-end moderno, servicios cloud e innovación de software.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo de Noticias</a></li>
+                    <li><a href="favoritos.html">Mis Favoritos</a></li>
+                    <li><a href="gestion.html">Panel de Gestión</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Categorías</h4>
+                <ul class="footer-links">
+                    <li><a href="catalogo.html">Desarrollo Web</a></li>
+                    <li><a href="catalogo.html">Inteligencia Artificial</a></li>
+                    <li><a href="catalogo.html">Ciberseguridad</a></li>
+                    <li><a href="catalogo.html">Cloud & DevOps</a></li>
+                    <li><a href="catalogo.html">Experiencias Tech</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Boletín Tecnológico</h4>
+                <p>Recibe los mejores análisis técnicos directamente en tu correo semanal.</p>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" placeholder="tu@correo.com" required>
+                    <button type="submit" class="btn btn-primary" style="padding: 8px 14px;">Unirse</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Tech News & Lab &bull; Politécnico Grancolombiano &bull; Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

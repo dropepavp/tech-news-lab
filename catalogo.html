@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explora el catálogo completo de artículos y noticias sobre tecnologías emergentes, frontend, cloud y ciberseguridad.">
+    <title>Tech News & Lab | Catálogo de Noticias</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- HEADER / NAVEGACIÓN -->
+    <header>
+        <div class="nav-wrapper">
+            <a href="index.html" class="logo-box">
+                <div class="logo-icon">{ }</div>
+                <div class="brand-text">
+                    Tech News
+                    <span>// Laboratorio Digital</span>
+                </div>
+            </a>
+
+            <button class="mobile-toggle" aria-label="Abrir Menú">☰</button>
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="catalogo.html" class="nav-link active">Noticias</a>
+                <a href="favoritos.html" class="nav-link fav-badge-btn">
+                    ⭐ Favoritos <span class="badge-count fav-count-badge">0</span>
+                </a>
+                <a href="gestion.html" class="nav-link">Gestión CRUD</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container">
+        
+        <div class="section-header">
+            <div>
+                <h1 class="section-title">Catálogo de Noticias & Experiencias</h1>
+                <p class="section-subtitle">Explora artículos especializados, filtra por área de interés o busca temas concretos.</p>
+            </div>
+            <span id="catalog-results-count" style="font-size: 13.5px; font-weight: 600; color: var(--text-muted); background: #f1f5f9; padding: 6px 14px; border-radius: var(--radius-full);">
+                Cargando publicaciones...
+            </span>
+        </div>
+
+        <!-- CONTROLES DE FILTRO Y BÚSQUEDA -->
+        <div class="controls-bar">
+            <!-- Buscador -->
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="catalog-search" placeholder="Buscar por título, contenido o autor...">
+            </div>
+
+            <!-- Filtro por Categorías -->
+            <div class="category-pills">
+                <button class="pill-btn active" data-cat="all">Todas</button>
+                <button class="pill-btn" data-cat="Desarrollo Web">Desarrollo Web</button>
+                <button class="pill-btn" data-cat="Inteligencia Artificial">IA</button>
+                <button class="pill-btn" data-cat="Ciberseguridad">Ciberseguridad</button>
+                <button class="pill-btn" data-cat="Cloud & DevOps">Cloud & DevOps</button>
+                <button class="pill-btn" data-cat="Experiencias Tech">Experiencias Tech</button>
+            </div>
+
+            <!-- Selector de Ordenamiento -->
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <label for="catalog-sort" style="font-size: 13px; color: var(--text-muted); font-weight: 500;">Ordenar:</label>
+                <select id="catalog-sort" style="padding: 6px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-size: 13px; outline: none; background: white;">
+                    <option value="latest">Más recientes</option>
+                    <option value="title">Título (A-Z)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- GRID DINÁMICO DE NOTICIAS -->
+        <div id="catalog-grid" class="catalog-grid">
+            <!-- Renderizado dinámico vía JavaScript -->
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-col">
+                <div class="logo-box" style="margin-bottom: 16px;">
+                    <div class="logo-icon">{ }</div>
+                    <div class="brand-text">Tech News <span>// Lab</span></div>
+                </div>
+                <p>Plataforma académica y portal de difusión tecnológica enfocado en el desarrollo front-end moderno, servicios cloud e innovación de software.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo de Noticias</a></li>
+                    <li><a href="favoritos.html">Mis Favoritos</a></li>
+                    <li><a href="gestion.html">Panel de Gestión</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Categorías</h4>
+                <ul class="footer-links">
+                    <li><a href="catalogo.html">Desarrollo Web</a></li>
+                    <li><a href="catalogo.html">Inteligencia Artificial</a></li>
+                    <li><a href="catalogo.html">Ciberseguridad</a></li>
+                    <li><a href="catalogo.html">Cloud & DevOps</a></li>
+                    <li><a href="catalogo.html">Experiencias Tech</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Boletín Tecnológico</h4>
+                <p>Recibe los mejores análisis técnicos directamente en tu correo semanal.</p>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" placeholder="tu@correo.com" required>
+                    <button type="submit" class="btn btn-primary" style="padding: 8px 14px;">Unirse</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Tech News & Lab &bull; Politécnico Grancolombiano &bull; Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Dependencias y temporales
+.DS_Store
+Thumbs.db
+node_modules/
+dist/
+*.log
+.vscode/
+.idea/
+.agents/

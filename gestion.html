@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel de gestión y administración de noticias de Tech News & Lab. Permite crear y eliminar artículos.">
+    <title>Tech News & Lab | Gestión de Noticias (CRUD)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- HEADER / NAVEGACIÓN -->
+    <header>
+        <div class="nav-wrapper">
+            <a href="index.html" class="logo-box">
+                <div class="logo-icon">{ }</div>
+                <div class="brand-text">
+                    Tech News
+                    <span>// Laboratorio Digital</span>
+                </div>
+            </a>
+
+            <button class="mobile-toggle" aria-label="Abrir Menú">☰</button>
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="catalogo.html" class="nav-link">Noticias</a>
+                <a href="favoritos.html" class="nav-link fav-badge-btn">
+                    ⭐ Favoritos <span class="badge-count fav-count-badge">0</span>
+                </a>
+                <a href="gestion.html" class="nav-link active">Gestión CRUD</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container">
+        
+        <div class="section-header">
+            <div>
+                <h1 class="section-title">Panel de Gestión de Noticias (Mini CRUD)</h1>
+                <p class="section-subtitle">Crea nuevos artículos técnicos o gestiona las publicaciones existentes en tiempo real.</p>
+            </div>
+            <button id="reset-defaults-btn" class="btn btn-secondary" style="font-size: 13px;">
+                🔄 Restaurar Datos Iniciales
+            </button>
+        </div>
+
+        <div class="detail-layout" style="grid-template-columns: 1fr 1fr; margin-bottom: 40px;">
+            
+            <!-- FORMULARIO DE CREACIÓN -->
+            <div class="form-card">
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px; color: var(--primary);">
+                    ➕ Redactar y Publicar Noticia
+                </h3>
+
+                <form id="create-news-form">
+                    <div class="form-group">
+                        <label class="form-label" for="news-title">Título de la Noticia *</label>
+                        <input type="text" id="news-title" class="form-control" placeholder="Ej: Nuevas capacidades de WebGPU en 2026" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="news-cat">Categoría *</label>
+                            <select id="news-cat" class="form-control" required>
+                                <option value="">Selecciona una categoría...</option>
+                                <option value="Desarrollo Web">Desarrollo Web</option>
+                                <option value="Inteligencia Artificial">Inteligencia Artificial</option>
+                                <option value="Ciberseguridad">Ciberseguridad</option>
+                                <option value="Cloud & DevOps">Cloud & DevOps</option>
+                                <option value="Experiencias Tech">Experiencias Tech</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="news-author">Autor / Redactor</label>
+                            <input type="text" id="news-author" class="form-control" placeholder="Ej: Ing. María Torres">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="news-readtime">Tiempo de Lectura</label>
+                            <input type="text" id="news-readtime" class="form-control" placeholder="Ej: 4 min">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="news-image">URL de la Imagen</label>
+                            <input type="url" id="news-image" class="form-control" placeholder="https://images.unsplash.com/...">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="news-desc">Descripción Breve (Resumen) *</label>
+                        <textarea id="news-desc" rows="2" class="form-control" placeholder="Resumen conciso que aparecerá en las tarjetas..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="news-content">Contenido Completo del Artículo *</label>
+                        <textarea id="news-content" rows="4" class="form-control" placeholder="Escribe el cuerpo detallado de la noticia o reporte técnico..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        Publicar Noticia en el Periódico
+                    </button>
+                </form>
+            </div>
+
+            <!-- GUÍA / AYUDA EDITORIAL -->
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="form-card" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white;">
+                    <span style="color: var(--brand-cyan); font-weight: 700; font-size: 12px; text-transform: uppercase;">ℹ️ Información del Sistema</span>
+                    <h4 style="color: white; margin: 8px 0 12px; font-size: 18px;">Persistencia en LocalStorage</h4>
+                    <p style="font-size: 13.5px; color: #cbd5e1; line-height: 1.6; margin-bottom: 16px;">
+                        Toda noticia que crees o elimines se sincroniza instantáneamente con el almacenamiento de tu navegador. Las nuevas publicaciones aparecerán de inmediato en la Página de Inicio, el Catálogo y la vista de Detalle.
+                    </p>
+                    <ul style="font-size: 13px; color: #94a3b8; padding-left: 18px; line-height: 1.6;">
+                        <li>Las imágenes deben ser enlaces válidos (soporta Unsplash).</li>
+                        <li>Los IDs se autoincrementan de forma segura.</li>
+                        <li>Si borras una noticia, también se limpia de la lista de favoritos.</li>
+                    </ul>
+                </div>
+
+                <div class="form-card">
+                    <h4 style="margin-bottom: 12px; font-size: 16px;">Consejos para Redacción Técnica</h4>
+                    <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 10px;">
+                        • Usa títulos claros que describan el impacto de la tecnología.<br>
+                        • En el resumen, destaca el beneficio para arquitecturas web modernas.<br>
+                        • Especifica la categoría adecuada para facilitar la búsqueda en el catálogo.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TABLA DE ARTÍCULOS PUBLICADOS -->
+        <div>
+            <div class="section-header">
+                <div>
+                    <h3 style="font-size: 22px; font-weight: 700;">Artículos Publicados Actualmente</h3>
+                    <p class="section-subtitle">Visualiza o remueve noticias del catálogo.</p>
+                </div>
+            </div>
+
+            <div class="admin-table-wrap">
+                <table class="admin-table" id="admin-news-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 70px;">Miniatura</th>
+                            <th>Título y Metadatos</th>
+                            <th>Categoría</th>
+                            <th style="width: 80px;">Vista</th>
+                            <th style="width: 100px;">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-news-table-body">
+                        <!-- Cargado dinámicamente vía JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-col">
+                <div class="logo-box" style="margin-bottom: 16px;">
+                    <div class="logo-icon">{ }</div>
+                    <div class="brand-text">Tech News <span>// Lab</span></div>
+                </div>
+                <p>Plataforma académica y portal de difusión tecnológica enfocado en el desarrollo front-end moderno, servicios cloud e innovación de software.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo de Noticias</a></li>
+                    <li><a href="favoritos.html">Mis Favoritos</a></li>
+                    <li><a href="gestion.html">Panel de Gestión</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Categorías</h4>
+                <ul class="footer-links">
+                    <li><a href="catalogo.html">Desarrollo Web</a></li>
+                    <li><a href="catalogo.html">Inteligencia Artificial</a></li>
+                    <li><a href="catalogo.html">Ciberseguridad</a></li>
+                    <li><a href="catalogo.html">Cloud & DevOps</a></li>
+                    <li><a href="catalogo.html">Experiencias Tech</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Boletín Tecnológico</h4>
+                <p>Recibe los mejores análisis técnicos directamente en tu correo semanal.</p>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" placeholder="tu@correo.com" required>
+                    <button type="submit" class="btn btn-primary" style="padding: 8px 14px;">Unirse</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Tech News & Lab &bull; Politécnico Grancolombiano &bull; Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
