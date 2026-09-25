@@ -9,13 +9,11 @@
 </head>
 <body>
 
-    <!-- HEADER / NAVEGACIÓN -->
+    <!-- HEADER / NAVEGACIÓN INSTITUCIONAL (FIGURA 1) -->
     <header>
         <div class="nav-wrapper">
             <a href="index.html" class="logo-box">
-                <div class="logo-icon-badge">
-                    <img src="img/logo.svg" alt="Tech & Lab Noticias Tecnológicas" class="brand-logo-img">
-                </div>
+                <img src="img/logo-white.svg" alt="Tech & Lab Noticias Tecnológicas" class="brand-logo-img">
             </a>
 
             <button class="mobile-toggle" aria-label="Abrir Menú">☰</button>
@@ -35,20 +33,24 @@
     <!-- CONTENIDO PRINCIPAL -->
     <main class="container">
         
-        <!-- HERO SECTION -->
-        <section class="hero-section">
+        <!-- HERO SECTION (ESTRUCTURA MOCKUP FIGURA 1) -->
+        <section class="hero-card">
             <div class="hero-content">
-                <span class="hero-tag">⚡ Edición Especial 2026</span>
+                <span class="hero-tag">EXPERIENCIA DESTACADA</span>
                 <h1 class="hero-title">
-                    Explora el Futuro del <span class="gradient-text">Desarrollo Web & Cloud</span>
+                    Migración de microservicios: Cómo optimizar respuestas sin morir en el intento
                 </h1>
                 <p class="hero-desc">
-                    Bienvenido a Tech News & Lab. Un periódico digital y laboratorio interactivo donde exploramos tendencias de vanguardia en Angular, Inteligencia Artificial, Ciberseguridad y experiencias tecnológicas.
+                    Exploramos cómo un equipo de desarrollo redujo en un 40% el uso de memoria cambiando tablas estáticas por arquitecturas reactivas y canales bidireccionales en tiempo real.
                 </p>
                 <div class="hero-actions">
-                    <a href="catalogo.html" class="btn btn-primary" id="hero-explore-btn">Explorar Todas las Noticias</a>
-                    <a href="gestion.html" class="btn btn-outline">Crear Nueva Noticia</a>
+                    <a href="detalle.html?id=1" class="btn btn-primary" id="hero-explore-btn">Leer Experiencia Completa →</a>
+                    <a href="catalogo.html" class="btn btn-secondary">Ver Catálogo</a>
                 </div>
+            </div>
+            
+            <div class="hero-image-wrap">
+                <img src="img/angular-signals.svg" alt="Arquitectura de Red y Signals">
             </div>
         </section>
 
@@ -78,14 +80,14 @@
             <div class="stat-card">
                 <div class="stat-icon">🎓</div>
                 <div>
-                    <div class="stat-number">Poli Lab</div>
-                    <div class="stat-label">Proyecto Front-End</div>
+                    <div class="stat-number">Subgrupo 19</div>
+                    <div class="stat-label">Poli Front-End 2026</div>
                 </div>
             </div>
         </section>
 
         <!-- SECCIÓN DESTACADOS -->
-        <section style="margin-bottom: 48px;">
+        <section style="margin-bottom: 40px;">
             <div class="section-header">
                 <div>
                     <h2 class="section-title">Noticias Destacadas</h2>
@@ -101,7 +103,7 @@
         </section>
 
         <!-- TESTIMONIOS Y COMUNIDAD -->
-        <section style="margin-bottom: 48px;">
+        <section style="margin-bottom: 40px;">
             <div class="section-header">
                 <div>
                     <h2 class="section-title">Experiencias y Testimonios</h2>
@@ -115,30 +117,30 @@
                     <div class="testimonial-user">
                         <div class="testimonial-avatar">SM</div>
                         <div>
-                            <strong style="font-size: 14px; display: block;">Sofía Moreno</strong>
-                            <span style="font-size: 12px; color: var(--text-muted);">Estudiante Ingeniería de Software</span>
+                            <strong style="font-size: 13.5px; display: block; color: var(--brand-navy);">Sonia Homez</strong>
+                            <span style="font-size: 12px; color: var(--text-muted);">Investigadora Subgrupo 19</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"La interfaz es moderna, rápida y la función de favoritos con almacenamiento local facilita guardar referencias técnicas para el laboratorio."</p>
+                    <p class="testimonial-text">"La interfaz es rápida, limpia y la función de favoritos con almacenamiento local facilita guardar referencias técnicas."</p>
                     <div class="testimonial-user">
-                        <div class="testimonial-avatar">DH</div>
+                        <div class="testimonial-avatar">SI</div>
                         <div>
-                            <strong style="font-size: 14px; display: block;">David Herrera</strong>
-                            <span style="font-size: 12px; color: var(--text-muted);">Desarrollador Front-End Junior</span>
+                            <strong style="font-size: 13.5px; display: block; color: var(--brand-navy);">Santiago Isaza</strong>
+                            <span style="font-size: 12px; color: var(--text-muted);">Desarrollador Front-End</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"Excelente fuente de consulta sobre seguridad Zero Trust y buenas prácticas de consumo de APIs de IA."</p>
+                    <p class="testimonial-text">"Excelente fuente de consulta sobre seguridad Zero Trust y buenas prácticas de consumo de APIs en tiempo real."</p>
                     <div class="testimonial-user">
-                        <div class="testimonial-avatar">LR</div>
+                        <div class="testimonial-avatar">PV</div>
                         <div>
-                            <strong style="font-size: 14px; display: block;">Laura Restrepo</strong>
-                            <span style="font-size: 12px; color: var(--text-muted);">Investigadora Cloud Poli</span>
+                            <strong style="font-size: 13.5px; display: block; color: var(--brand-navy);">Pedro Alejandro Varela</strong>
+                            <span style="font-size: 12px; color: var(--text-muted);">Estudiante Ingeniería Poli</span>
                         </div>
                     </div>
                 </div>
@@ -147,11 +149,11 @@
 
     </main>
 
-    <!-- FOOTER -->
+    <!-- FOOTER INSTITUCIONAL -->
     <footer>
         <div class="footer-top">
             <div class="footer-col">
-                <img src="img/logo.svg" alt="Tech & Lab" class="brand-logo-img-footer">
+                <img src="img/logo-white.svg" alt="Tech & Lab" class="brand-logo-img-footer">
                 <p>Plataforma académica y portal de difusión tecnológica del Subgrupo 19, enfocado en el desarrollo front-end moderno, servicios cloud e innovación de software.</p>
             </div>
             <div class="footer-col">
@@ -179,12 +181,12 @@
                 <p>Recibe los mejores análisis técnicos directamente en tu correo semanal.</p>
                 <form id="newsletter-form" class="newsletter-form">
                     <input type="email" placeholder="tu@correo.com" required>
-                    <button type="submit" class="btn btn-primary" style="padding: 8px 14px;">Unirse</button>
+                    <button type="submit" class="btn btn-primary" style="padding: 7px 14px;">Unirse</button>
                 </form>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Tech News & Lab &bull; Politécnico Grancolombiano &bull; Todos los derechos reservados.</p>
+            <p>&copy; 2026 Tech News & Lab &bull; Politécnico Grancolombiano &bull; Subgrupo 19 &bull; Todos los derechos reservados.</p>
         </div>
     </footer>
 
