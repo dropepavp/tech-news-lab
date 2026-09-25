@@ -1,10 +1,11 @@
 /**
- * Tech News & Lab - Core Application Logic
- * Integrates: Dynamic rendering, LocalStorage persistence, Favorites, Mini-CRUD,
- * Search & Filters, Real-time Validation, Custom Toasts, and Offline Fallbacks.
+ * Tech News & Lab - Core Application Logic (100% Local & Offline)
+ * Subgrupo 19 - Politécnico Grancolombiano
+ * Integrates: Dynamic rendering from JSON, LocalStorage persistence, Favorites,
+ * Mini-CRUD, Search & Filters, Real-time Validation, Custom Toasts, and Local Assets.
  */
 
-// Default seed data (serves as fallback if fetch is restricted in file:// protocol)
+// Default seed data with 100% local assets
 const DEFAULT_NEWS = [
     {
         id: 1,
@@ -14,7 +15,7 @@ const DEFAULT_NEWS = [
         author: "Ing. Sofía Martínez",
         date: "24 Sep 2026",
         readTime: "5 min",
-        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
+        image: "img/angular-signals.svg",
         featured: true,
         content: "Las señales (Signals) en Angular representan uno de los saltos evolutivos más trascendentales en el ecosistema front-end. Al permitir un seguimiento de dependencias a nivel de nodo en el árbol del DOM, se elimina la necesidad de comprobación sucia global que históricamente ejecutaba Zone.js. Esto se traduce en aplicaciones empresariales con renderizados a 60 FPS consistentes, menor consumo de memoria en dispositivos móviles y una sintaxis declarativa más limpia para los desarrolladores. En este reporte evaluamos benchmarks de rendimiento comparando aplicaciones Angular 14 vs Angular 18 en microfrontends de alta concurrencia."
     },
@@ -26,7 +27,7 @@ const DEFAULT_NEWS = [
         author: "Dr. Carlos Valenzuela",
         date: "22 Sep 2026",
         readTime: "7 min",
-        image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
+        image: "img/ai-apis.svg",
         featured: true,
         content: "La integración de modelos de lenguaje en pipelines empresariales ha dejado de ser un experimento para convertirse en infraestructura crítica. Los nuevos esquemas de agentes autónomos combinan llamadas a herramientas externas (Tool Calling), memoria vectorial distribuida y capas de sanitización de prompts. Analizamos cómo arquitecturar sistemas tolerantes a fallos donde la latencia se amortiza mediante streaming SSE y compresión de embeddings en memoria."
     },
@@ -38,7 +39,7 @@ const DEFAULT_NEWS = [
         author: "MSc. Andrea Rivas",
         date: "20 Sep 2026",
         readTime: "6 min",
-        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800",
+        image: "img/cybersecurity-zerotrust.svg",
         featured: true,
         content: "El perímetro tradicional de seguridad ha desaparecido. El modelo Zero Trust («nunca confíes, siempre verifica») exige validación criptográfica en cada microservicio y canal de datos. Revisamos la implementación de mTLS universal, tokens efímeros JWT con rotación asimétrica y detección de anomalías en tiempo real con algoritmos de grafos sobre nodos Kubernetes distribuidos."
     },
@@ -50,7 +51,7 @@ const DEFAULT_NEWS = [
         author: "Lic. Alejandro Mendoza",
         date: "18 Sep 2026",
         readTime: "4 min",
-        image: "https://images.unsplash.com/photo-1558494949-ef0109124b5e?auto=format&fit=crop&q=80&w=800",
+        image: "img/cloud-wasm.svg",
         featured: false,
         content: "WebAssembly (WASM) está transformando el cómputo en la nube al ofrecer contenedores binarios con tiempos de arranque menores a 5 milisegundos y un aislamiento de memoria seguro por diseño. En entornos multi-cloud, permite desplegar funciones de cómputo perimetral en cientos de ubicaciones geográficas reduciendo costos de transferencia y optimizando la entrega de contenido a escala global."
     },
@@ -62,7 +63,7 @@ const DEFAULT_NEWS = [
         author: "Arq. Valentina Gómez",
         date: "15 Sep 2026",
         readTime: "5 min",
-        image: "https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&fit=crop&q=80&w=800",
+        image: "img/digital-twins.svg",
         featured: false,
         content: "La convergencia de fotogrametría de alta fidelidad, escaneo LiDAR y motores gráficos en tiempo real en la web (WebGPU) ha permitido reconstruir digitalmente sitios arqueológicos y centros urbanos. Los usuarios pueden recorrer réplicas interactivas en 3D con guías impulsadas por audio espacial e IA conversacional multilingüe."
     },
@@ -74,13 +75,13 @@ const DEFAULT_NEWS = [
         author: "Ing. Julián Castro",
         date: "12 Sep 2026",
         readTime: "4 min",
-        image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800",
+        image: "img/css-animations.svg",
         featured: false,
         content: "La evolución de CSS nativo está reemplazando bibliotecas de utilidades complejas. Con @layer, @container queries y la API de View Transitions, los desarrolladores pueden crear transiciones de página fluidas sin frameworks pesados, garantizando accesibilidad y un puntaje óptimo en Core Web Vitals."
     }
 ];
 
-const STORAGE_KEY = 'tech_news_data';
+const STORAGE_KEY = 'tech_news_data_v2';
 const FAVS_KEY = 'tech_news_favs';
 
 // ==========================================================================
@@ -97,7 +98,7 @@ async function initNewsData() {
                 return fetchedData;
             }
         } catch (e) {
-            console.warn('Fetch fallback to DEFAULT_NEWS:', e);
+            console.warn('Carga local inmediata desde DEFAULT_NEWS:', e);
         }
         localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_NEWS));
         return DEFAULT_NEWS;
@@ -185,14 +186,15 @@ function showToast(message, type = 'info') {
 }
 
 // ==========================================================================
-// CARD RENDERER COMPONENT
+// CARD RENDERER COMPONENT (100% LOCAL IMAGES)
 // ==========================================================================
 function createNewsCardHTML(item) {
     const isFav = isFavorite(item.id);
+    const imageSrc = item.image || 'img/default-news.svg';
     return `
         <article class="card-item" data-id="${item.id}" data-category="${item.cat}">
             <div class="card-image-wrap">
-                <img src="${item.image}" alt="${item.title}" class="card-img" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800'">
+                <img src="${imageSrc}" alt="${item.title}" class="card-img" loading="lazy" onerror="this.src='img/default-news.svg'">
                 <span class="card-badge">${item.cat}</span>
             </div>
             <div class="card-content">
@@ -436,8 +438,9 @@ function renderDetailPage() {
     if (dateEl) dateEl.textContent = article.date || 'Publicado recientemente';
     if (readTimeEl) readTimeEl.textContent = article.readTime || '5 min lectura';
     if (imgEl) {
-        imgEl.src = article.image;
+        imgEl.src = article.image || 'img/default-news.svg';
         imgEl.alt = article.title;
+        imgEl.onerror = function() { this.src = 'img/default-news.svg'; };
     }
     if (contentEl) {
         contentEl.innerHTML = `
@@ -445,15 +448,15 @@ function renderDetailPage() {
                 ${article.desc}
             </p>
             <p>${article.content || article.desc}</p>
-            <div style="background: #f1f5f9; border-left: 4px solid var(--brand-blue); padding: 18px 24px; margin: 28px 0; border-radius: 0 8px 8px 0;">
-                <h4 style="margin-bottom: 6px; color: var(--primary);">Aspectos Clave para el Desarrollador:</h4>
+            <div style="background: #f1f5f9; border-left: 4px solid var(--brand-cyan); padding: 18px 24px; margin: 28px 0; border-radius: 0 8px 8px 0;">
+                <h4 style="margin-bottom: 6px; color: var(--primary);">Aspectos Clave del Laboratorio:</h4>
                 <ul style="padding-left: 20px; font-size: 14px; color: #475569;">
-                    <li>Implementación nativa sin dependencias monolíticas.</li>
-                    <li>Compatibilidad con arquitecturas modernas en la nube.</li>
-                    <li>Buenas prácticas de seguridad y rendimiento en Front-end.</li>
+                    <li>Implementación 100% nativa y modular en Front-End.</li>
+                    <li>Consumo asíncrono desde archivo JSON estructurado.</li>
+                    <li>Persistencia de estado en LocalStorage sin dependencias externas.</li>
                 </ul>
             </div>
-            <p>Para profundizar en estos conceptos y consultar el código fuente de los ejemplos prácticos desarrollados en el Laboratorio Politécnico Grancolombiano, puedes ponerte en contacto con el autor del artículo o revisar nuestro repositorio institucional.</p>
+            <p>Para profundizar en estos conceptos y consultar el código fuente de los ejemplos prácticos desarrollados en el Laboratorio Politécnico Grancolombiano (Subgrupo 19), puedes ponerte en contacto con el autor del artículo o revisar nuestro repositorio institucional.</p>
         `;
     }
     if (breadcrumbTitle) breadcrumbTitle.textContent = article.title.length > 30 ? article.title.substring(0, 30) + '...' : article.title;
@@ -502,9 +505,9 @@ function renderDetailPage() {
         const related = news.filter(n => n.id !== article.id).slice(0, 3);
         relatedContainer.innerHTML = related.map(item => `
             <a href="detalle.html?id=${item.id}" style="display: flex; gap: 12px; margin-bottom: 16px; align-items: center;">
-                <img src="${item.image}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px;" alt="">
+                <img src="${item.image || 'img/default-news.svg'}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px;" alt="" onerror="this.src='img/default-news.svg'">
                 <div>
-                    <span style="font-size: 11px; font-weight: 700; color: var(--brand-blue);">${item.cat}</span>
+                    <span style="font-size: 11px; font-weight: 700; color: var(--brand-cyan);">${item.cat}</span>
                     <h5 style="font-size: 13px; line-height: 1.3; margin-top: 2px;">${item.title}</h5>
                 </div>
             </a>
@@ -569,7 +572,7 @@ function initAdminPage() {
             tableBody.innerHTML = news.map(item => `
                 <tr>
                     <td>
-                        <img src="${item.image}" alt="" class="table-thumb" onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800'">
+                        <img src="${item.image || 'img/default-news.svg'}" alt="" class="table-thumb" onerror="this.src='img/default-news.svg'">
                     </td>
                     <td>
                         <strong style="display: block; font-size: 14px;">${item.title}</strong>
@@ -612,9 +615,9 @@ function initAdminPage() {
             e.preventDefault();
             const title = document.getElementById('news-title').value.trim();
             const cat = document.getElementById('news-cat').value;
-            const author = document.getElementById('news-author').value.trim() || 'Equipo Tech Lab';
+            const author = document.getElementById('news-author').value.trim() || 'Subgrupo 19';
             const readTime = document.getElementById('news-readtime').value.trim() || '5 min';
-            const image = document.getElementById('news-image').value.trim() || 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800';
+            const image = document.getElementById('news-image').value.trim() || 'img/default-news.svg';
             const desc = document.getElementById('news-desc').value.trim();
             const content = document.getElementById('news-content').value.trim() || desc;
 
@@ -653,7 +656,7 @@ function initAdminPage() {
 
     if (resetDefaultsBtn) {
         resetDefaultsBtn.addEventListener('click', () => {
-            if (confirm('¿Restablecer las noticias a los datos por defecto del proyecto?')) {
+            if (confirm('¿Restablecer las noticias a los datos por defecto locales?')) {
                 saveNewsData(DEFAULT_NEWS);
                 showToast('Datos restaurados correctamente', 'info');
                 renderTable();
@@ -721,7 +724,7 @@ function initContactPage() {
                 return;
             }
 
-            // Simulate form submission
+            // Simulate form submission locally
             const submitBtn = form.querySelector('button[type="submit"]');
             if (submitBtn) {
                 submitBtn.disabled = true;

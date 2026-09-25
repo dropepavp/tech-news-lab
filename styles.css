@@ -89,21 +89,33 @@ header {
     display: flex;
     align-items: center;
     gap: 12px;
+    text-decoration: none;
 }
 
-.logo-icon {
-    background: var(--brand-gradient);
-    color: #ffffff;
-    width: 40px;
-    height: 40px;
+.brand-logo-img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25));
+    transition: var(--transition);
+}
+
+.logo-box:hover .brand-logo-img {
+    transform: scale(1.04);
+}
+
+.brand-logo-img-footer {
+    height: 48px;
+    width: auto;
+    background: #ffffff;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+.logo-icon-badge {
+    background: #ffffff;
+    padding: 4px 8px;
     border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-family: 'Outfit', monospace;
-    font-weight: 800;
-    font-size: 18px;
-    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
 }
 
 .brand-text {
