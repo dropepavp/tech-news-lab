@@ -44,6 +44,15 @@
 
 ```text
 Tech News & Lab/
+├── img/              # Recursos gráficos locales e ilustraciones vectoriales SVG
+│   ├── logo-white.svg
+│   ├── microservices-architecture.svg
+│   ├── web-development.svg
+│   ├── angular-signals.svg
+│   ├── ai-apis.svg
+│   ├── cybersecurity-zerotrust.svg
+│   ├── cloud-wasm.svg
+│   └── digital-twins.svg
 ├── index.html        # Página de inicio (Hero, destacados, métricas, testimonios)
 ├── catalogo.html     # Catálogo dinámico con buscador y filtros
 ├── detalle.html      # Vista detallada de la noticia y artículos relacionados
@@ -66,12 +75,17 @@ Tech News & Lab/
    ```
 2. **Abrir el proyecto:**
    - Puedes abrir directamente el archivo `index.html` en cualquier navegador web moderno (Google Chrome, Microsoft Edge, Mozilla Firefox).
-   - O utilizar la extensión **Live Server** de Visual Studio Code para una experiencia de desarrollo en servidor local.
+   - O utilizar la extensión **Live Server** de Visual Studio Code.
 
 ---
 
-## 👨‍💻 Créditos
-- **Curso:** Front-End & Tecnologías Web
-- **Institución:** Politécnico Grancolombiano
+## 👥 Integrantes del Subgrupo 19
+- **Sonia Homez Homez**
+- **Santiago Isaza Lema**
+- **Pedro Alejandro Varela Pinzón**
+
+- **Docente:** Prof. John Olarte Ramos
+- **Asignatura:** Front End (Grupo B01) &bull; Politécnico Grancolombiano
 - **Año:** 2026
-Subgrupo 19
+- **Subgrupo 19** 
+
