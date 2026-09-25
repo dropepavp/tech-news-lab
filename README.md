@@ -48,7 +48,7 @@ Tech News & Lab/
 ├── catalogo.html     # Catálogo dinámico con buscador y filtros
 ├── detalle.html      # Vista detallada de la noticia y artículos relacionados
 ├── favoritos.html    # Gestión de noticias guardadas (LocalStorage)
-├── gestion.html      # Panel Mini CRUD para agregar y eliminar noticias
+├── gestion.html      # Experiencias Dev (Panel para publicar y gestionar noticias)
 ├── contacto.html     # Formulario de contacto validado y preguntas frecuentes (FAQ)
 ├── noticias.json     # Base de datos local en formato JSON
 ├── styles.css        # Hoja de estilos unificada y responsive
