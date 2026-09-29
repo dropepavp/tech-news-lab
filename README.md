@@ -69,11 +69,17 @@ Tech News & Lab/
 
 ## 💻 Instrucciones de Ejecución Local
 
-1. **Clonar o descargar el repositorio:**
+1. **Enlace al Repositorio Oficial:**
+   - 🔗 [https://github.com/dropepavp/tech-news-lab](https://github.com/dropepavp/tech-news-lab)
+
+2. **Demostración en Vivo (GitHub Pages):**
+   - 🌐 [https://dropepavp.github.io/tech-news-lab/](https://dropepavp.github.io/tech-news-lab/)
+
+3. **Clonar o descargar el repositorio:**
    ```bash
-   git clone https://github.com/TU-USUARIO/tech-news-lab.git
+   git clone https://github.com/dropepavp/tech-news-lab.git
    ```
-2. **Abrir el proyecto:**
+4. **Abrir el proyecto:**
    - Puedes abrir directamente el archivo `index.html` en cualquier navegador web moderno (Google Chrome, Microsoft Edge, Mozilla Firefox).
    - O utilizar la extensión **Live Server** de Visual Studio Code.
 
